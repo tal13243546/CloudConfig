@@ -24,13 +24,7 @@ spring:
         - name: Hystrix
           args:
             name: monitor-srvB
-            fallbackUri: forward:/fallback/serviceB  
-      - id: MQActivityService
-        uri: lb://activity
-        predicates:
-        - Path=/act/**
-        filters:
-        - RewritePath=/act/(?<segment>.*), /$\{segment} 
+            fallbackUri: forward:/fallback/serviceB   
     consul:
       discovery:
         instanceId: Gateway
